@@ -26,6 +26,8 @@ or
 
 ## Usage
 * press `Control + Command + J`, or use the `Plugins` menu
+### Example
+<img src='https://d26dzxoao6i3hh.cloudfront.net/items/0Q413P3U3B123A0L3x2H/Screen%20Recording%202017-10-16%20at%2001.46%20pm.gif?v=c5c31a8e' width='700px'>
 
 ## Behavior
 
