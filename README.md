@@ -27,7 +27,7 @@ or
 ## Usage
 * press `Control + Command + J`, or use the `Plugins` menu
 ### Example
-<img src='https://d26dzxoao6i3hh.cloudfront.net/items/0Q413P3U3B123A0L3x2H/Screen%20Recording%202017-10-16%20at%2001.46%20pm.gif?v=c5c31a8e' width='700px'>
+<img src='https://d26dzxoao6i3hh.cloudfront.net/items/3R1F2D0T112U2Z3X000D/Screen%20Recording%202017-10-16%20at%2006.42%20pm.gif' width='700px'>
 
 ## Behavior
 
