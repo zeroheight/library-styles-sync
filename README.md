@@ -26,8 +26,10 @@ or
 
 ## Usage
 * press `Control + Command + J`, or use the `Plugins` menu
-### Example
+### Example - first sync
 <img src='https://d26dzxoao6i3hh.cloudfront.net/items/3R1F2D0T112U2Z3X000D/Screen%20Recording%202017-10-16%20at%2006.42%20pm.gif' width='700px'>
+### Example - getting an update
+<img src='https://d26dzxoao6i3hh.cloudfront.net/items/1R2L341g382t272v2X24/Screen%20Recording%202017-10-16%20at%2006.44%20pm.gif' width='700px'>
 
 ## Behavior
 
