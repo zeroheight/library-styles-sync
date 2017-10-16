@@ -1,6 +1,6 @@
 # Library Styles Sync
 ## Overview
-This plugin syncs shared text and layer styles from a Sketch Library into the current document.
+a Sketch plugin to sync shared text and layer styles from a Sketch Library into the current document.
 
 ### Which Libraries does it sync from?
 It syncs styles from any libraries that you've inserted a symbol from
