@@ -11,7 +11,7 @@ sync shared text and layer styles from a Sketch Libary into the current document
   * if it does exist, it's overwritten
   
 ### Does sync work both ways?
-No, sync is only one-way, and any changes to your documents shared styles will get overwritten next time you run the plugin.
+No, sync is only one-way (from Library to document). Any changes to your document's shared styles will get overwritten next time you run the plugin.
 
 ## Installation
 **[Download](https://api.sketchpacks.com/v1/plugins/com.zeroheight.library-styles-sync/download)**, unzip and double click the `.sketchplugin`
