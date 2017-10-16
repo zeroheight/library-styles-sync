@@ -1,7 +1,7 @@
 <img src='https://raw.githubusercontent.com/zeroheight/library-styles-sync/master/images/cover.png'>
 
 ## Overview
-a Sketch plugin to sync shared text and layer styles from a Sketch Library into the current document.
+Here's a Sketch plugin to sync shared text and layer styles from a Sketch Library into the current document.
 
 ### Which Libraries does it sync from?
 It syncs styles from any libraries that you've inserted a symbol from
