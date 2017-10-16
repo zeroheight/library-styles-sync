@@ -3,12 +3,12 @@
 sync shared text and layer styles from a Sketch Libary into the current document.
 
 ### Which Libraries does it sync from?
-* It syncs styles from any libraries that you've inserted a symbol from
+It syncs styles from any libraries that you've inserted a symbol from
 
 ### How does it match styles?
-* By name
-  * if the style doesn't exist, it's created
-  * if it does exist, it's overwritten
+By name
+* if the style doesn't exist, it's created
+* if it does exist, it's overwritten
   
 ### Does sync work both ways?
 No, sync is only one-way (from Library to document). 
