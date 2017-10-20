@@ -37,4 +37,4 @@ or
 Get in touch at robin#zeroheight.com, but use @ instead of # if you're not a 🤖
 
 ## License
-Copyright (c) 2017 Zero Height Limited (zeroheight). See LICENSE.md for further details.
+Copyright (c) 2017 Zero Height Limited (zeroheight). See [LICENSE.md](https://github.com/zeroheight/library-styles-sync/blob/master/LICENSE.md) for further details.
