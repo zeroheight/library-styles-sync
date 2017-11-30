@@ -1,13 +1,13 @@
 {
   "name": "Library Styles Sync",
   "identifier": "com.zeroheight.library-styles-sync",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "sync shared styles with a Library document",
   "authorEmail": "support@zeroheight.com",
   "author": "zeroheight team",
   "appcast": "https://api.sketchpacks.com/v1/plugins/com.zeroheight.library-styles-sync/appcast",
   "updateURL": "https://github.com/zeroheight/library-styles-sync",
-  "compatibleVersion": 47,
+  "compatibleVersion": 48,
   "bundleVersion": 1,
   "commands": [{
     "script": "script.js",
