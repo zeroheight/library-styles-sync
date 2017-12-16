@@ -1,7 +1,7 @@
 {
   "name": "Library Styles Sync",
   "identifier": "com.zeroheight.library-styles-sync",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "sync shared styles with a Library document",
   "authorEmail": "support@zeroheight.com",
   "author": "zeroheight team",
@@ -15,5 +15,23 @@
     "shortcut": "ctrl command j",
     "name": "Sync Library Styles",
     "identifier": "com.zeroheight.library-styles-sync.sync"
+  },{
+    "script": "script.js",
+    "handler": "syncJSON",
+    "shortcut": "",
+    "name": "JSON - Sync",
+    "identifier": "com.zeroheight.library-styles-sync.json-sync"
+  },{
+    "script": "script.js",
+    "handler": "setColor",
+    "shortcut": "",
+    "name": "JSON - Set color URL",
+    "identifier": "com.zeroheight.library-styles-sync.json-color"
+  },{
+    "script": "script.js",
+    "handler": "setTypo",
+    "shortcut": "",
+    "name": "JSON - Set typography URL",
+    "identifier": "com.zeroheight.library-styles-sync.json-typo"
   }]
 }
