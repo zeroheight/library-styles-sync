@@ -72,11 +72,15 @@ var syncJSON = function (context) {
 
   var doc = context.document.documentData();
   var currentStyles = createLookup(doc.layerTextStyles());
+  var result = {created: 0};
 
-  createStyles(typography, colors, doc.layerTextStyles(), currentStyles, '');
+  createStyles(typography, colors, doc.layerTextStyles(), currentStyles, '', result);
+
+  context.document.reloadInspector();
+  context.document.showMessage('Synced ' + result.created + ' styles from JSON');
 };
 
-var createStyles = function (typography, colors, sharedStyles, currentStyles, path) {
+var createStyles = function (typography, colors, sharedStyles, currentStyles, path, result) {
   var properties = {};
   var styleColors = [];
 
@@ -84,7 +88,7 @@ var createStyles = function (typography, colors, sharedStyles, currentStyles, pa
     if (typography.hasOwnProperty(key)) {
       var value = typography[key];
       if (typeof value === 'object' && !value[0]) {
-        createStyles(value, colors, sharedStyles, currentStyles, path + '/' + key);
+        createStyles(value, colors, sharedStyles, currentStyles, path + '/' + key, result);
       } else {
         if (key === 'color') {
           styleColors.push(value);
@@ -104,6 +108,7 @@ var createStyles = function (typography, colors, sharedStyles, currentStyles, pa
   if (styleColors.length === 0) {
     properties['color'] = colors.primary;
     createStyle(path.substr(1), properties, sharedStyles, currentStyles);
+    result.created++;
   } else {
     for (var i = 0; i < styleColors.length; ++i) {
       var colorString = styleColors[i];
@@ -111,6 +116,7 @@ var createStyles = function (typography, colors, sharedStyles, currentStyles, pa
       var capitalColorString = colorString.charAt(0).toUpperCase() + colorString.slice(1);
       createStyle(path.substr(1) + '/' + capitalColorString, properties,
         sharedStyles, currentStyles);
+      result.created++;
     }
   }
 };
