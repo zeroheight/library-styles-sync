@@ -16,6 +16,16 @@ No, sync is only one-way (from Library to document).
 
 Any changes to your document's shared styles will get overwritten next time you run the plugin.
 
+## JSON (experimental / WIP)
+* add URLs for color and typography JSON files
+* sync those JSON styles as text styles
+
+Apologies for poor docs on this - it's still a work-in-progress
+
+### example JSON files
+* https://git.zeroheight.com/robin/tokens/raw/master/colors.json
+* https://git.zeroheight.com/robin/tokens/raw/master/typography.json
+
 ## Installation
 **[Download](https://api.sketchpacks.com/v1/plugins/com.zeroheight.library-styles-sync/download)**, unzip and double click the `.sketchplugin`
 
