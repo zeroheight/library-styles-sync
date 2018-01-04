@@ -6,6 +6,8 @@ var syncStyles = function (context) {
     text: createLookup(doc.layerTextStyles())
   };
 
+  var validLibraries = 0;
+
   var librarySymbols = doc.foreignSymbols();
   var seenLibraries = {};
   librarySymbols.forEach(function (symbol) {
@@ -13,16 +15,18 @@ var syncStyles = function (context) {
     if (!seenLibraries[libraryID]) {
       seenLibraries[libraryID] = true;
       var library = librariesController().libraryForSymbol_(symbol.symbolMaster());
-      syncLibraryStyles(library.document().layerStyles(), doc.layerStyles(), lookups.layer);
-      syncLibraryStyles(library.document().layerTextStyles(), doc.layerTextStyles(), lookups.text);
+      if (library && library.document()) {
+        validLibraries++;
+        syncLibraryStyles(library.document().layerStyles(), doc.layerStyles(), lookups.layer);
+        syncLibraryStyles(library.document().layerTextStyles(), doc.layerTextStyles(), lookups.text);
+      }
     }
   });
 
   context.document.reloadInspector();
 
-  var libCount = Object.keys(seenLibraries).length;
-  var objects = (libCount === 1) ? 'library' : 'libraries';
-  context.document.showMessage('Synced styles with ' + libCount + ' ' + objects);
+  var objects = (validLibraries === 1) ? 'library' : 'libraries';
+  context.document.showMessage('Synced styles with ' + validLibraries + ' ' + objects);
 };
 
 var getUserDefaults = function () {
