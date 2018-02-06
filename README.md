@@ -3,8 +3,9 @@
 ## Overview
 Here's a Sketch plugin to sync shared text and layer styles from a Sketch Library into the current document.
 
-### Which Libraries does it sync from?
-It syncs styles from any libraries that you've inserted a symbol from
+### How do I use it?
+* Insert a symbol from the library you want to sync the styles from
+* Run the `Sync` command to load styles from that library
 
 ### How does it match styles?
 By name
@@ -15,6 +16,9 @@ By name
 No, sync is only one-way (from Library to document). 
 
 Any changes to your document's shared styles will get overwritten next time you run the plugin.
+
+### Which Libraries does it sync from?
+It syncs styles from any libraries that you've inserted a symbol from
 
 ## JSON (experimental / WIP)
 * add URLs for color and typography JSON files
