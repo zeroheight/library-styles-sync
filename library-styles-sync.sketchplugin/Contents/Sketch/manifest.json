@@ -11,6 +11,12 @@
   "bundleVersion": 1,
   "commands": [{
     "script": "script.js",
+    "handler": "syncStylesWith",
+    "shortcut": "ctrl shift command j",
+    "name": "Sync With...",
+    "identifier": "com.zeroheight.library-styles-sync.sync-with"
+  },{
+    "script": "script.js",
     "handler": "syncStyles",
     "shortcut": "ctrl command j",
     "name": "Sync Library Styles",
