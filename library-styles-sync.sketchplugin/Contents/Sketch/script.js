@@ -24,7 +24,7 @@ var syncStylesWith = function (context) {
   alert.addButtonWithTitle('Sync');
 	alert.addButtonWithTitle('Cancel');
 
-  if(alert.runModal() == "1000")
+  if(alert.runModal() == NSAlertFirstButtonReturn)
   {
     var chosenLibrary = alert.viewAtIndex(0).stringValue();
     AppController.sharedInstance().librariesController().libraries().forEach(function(lib){

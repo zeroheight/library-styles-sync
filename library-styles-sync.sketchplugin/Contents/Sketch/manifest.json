@@ -13,13 +13,13 @@
     "script": "script.js",
     "handler": "syncStylesWith",
     "shortcut": "ctrl shift command j",
-    "name": "Sync With...",
+    "name": "Sync with...",
     "identifier": "com.zeroheight.library-styles-sync.sync-with"
   },{
     "script": "script.js",
     "handler": "syncStyles",
     "shortcut": "ctrl command j",
-    "name": "Quick sync",
+    "name": "Sync with imported libraries",
     "identifier": "com.zeroheight.library-styles-sync.sync"
   },{
     "script": "script.js",
@@ -49,7 +49,7 @@
                 "com.zeroheight.library-styles-sync.sync-with",
             ]
         },{
-          "title": "JSON Sync",
+          "title": "JSON Sync (experimental)",
           "items": [
                "com.zeroheight.library-styles-sync.json-sync",
                "com.zeroheight.library-styles-sync.json-color",
