@@ -11,9 +11,15 @@
   "bundleVersion": 1,
   "commands": [{
     "script": "script.js",
+    "handler": "syncStylesWith",
+    "shortcut": "ctrl shift command j",
+    "name": "Sync with...",
+    "identifier": "com.zeroheight.library-styles-sync.sync-with"
+  },{
+    "script": "script.js",
     "handler": "syncStyles",
     "shortcut": "ctrl command j",
-    "name": "Sync Library Styles",
+    "name": "Sync with imported libraries",
     "identifier": "com.zeroheight.library-styles-sync.sync"
   },{
     "script": "script.js",
@@ -33,5 +39,22 @@
     "shortcut": "",
     "name": "JSON - Set typography URL",
     "identifier": "com.zeroheight.library-styles-sync.json-typo"
-  }]
+  }],
+  "menu": {
+    "items": [
+        {
+           "title": "Sync",
+           "items": [
+                "com.zeroheight.library-styles-sync.sync",
+                "com.zeroheight.library-styles-sync.sync-with",
+            ]
+        },{
+          "title": "JSON Sync (experimental)",
+          "items": [
+               "com.zeroheight.library-styles-sync.json-sync",
+               "com.zeroheight.library-styles-sync.json-color",
+               "com.zeroheight.library-styles-sync.json-typo",
+           ]
+        }]
+    }
 }
