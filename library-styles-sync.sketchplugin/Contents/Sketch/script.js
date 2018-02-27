@@ -1,5 +1,4 @@
 var syncStylesWith = function (context) {
-
   var doc = context.document.documentData();
   var lookups = {
     layer: createLookup(doc.layerStyles()),
@@ -7,14 +6,14 @@ var syncStylesWith = function (context) {
   };
 
   var options = [];
-  AppController.sharedInstance().librariesController().libraries().forEach(function(lib){
+  AppController.sharedInstance().librariesController().libraries().forEach(function (lib) {
     options.push(lib.name());
   });
 
   var alert = COSAlertWindow.new();
   alert.setMessageText('Choose library for sync:');
 
-  var select = NSComboBox.alloc().initWithFrame(NSMakeRect(0,0,200,25));
+  var select = NSComboBox.alloc().initWithFrame(NSMakeRect(0, 0, 200, 25));
   select.i18nObjectValues = options;
   select.setEditable(false);
   select.addItemsWithObjectValues(options);
@@ -22,20 +21,19 @@ var syncStylesWith = function (context) {
   alert.addAccessoryView(select);
 
   alert.addButtonWithTitle('Sync');
-	alert.addButtonWithTitle('Cancel');
+  alert.addButtonWithTitle('Cancel');
 
-  if(alert.runModal() == NSAlertFirstButtonReturn)
-  {
+  if (alert.runModal() == NSAlertFirstButtonReturn) {
     var chosenLibrary = alert.viewAtIndex(0).stringValue();
-    AppController.sharedInstance().librariesController().libraries().forEach(function(lib){
-      if(lib.name() == chosenLibrary){
+    AppController.sharedInstance().librariesController().libraries().forEach(function (lib) {
+      if (lib.name() == chosenLibrary) {
         syncLibraryStyles(lib.document().layerStyles(), doc.layerStyles(), lookups.layer);
         syncLibraryStyles(lib.document().layerTextStyles(), doc.layerTextStyles(), lookups.text);
-        context.document.showMessage('Synced styles with ' + chosenLibrary);
+        context.document.showMessage('Synced styles from ' + chosenLibrary);
       }
     });
   }
-}
+};
 
 var syncStyles = function (context) {
   var doc = context.document.documentData();
@@ -65,7 +63,7 @@ var syncStyles = function (context) {
   context.document.reloadInspector();
 
   var objects = (validLibraries === 1) ? 'library' : 'libraries';
-  context.document.showMessage('Synced styles with ' + validLibraries + ' ' + objects);
+  context.document.showMessage('Synced styles from ' + validLibraries + ' ' + objects);
 };
 
 var getUserDefaults = function () {
