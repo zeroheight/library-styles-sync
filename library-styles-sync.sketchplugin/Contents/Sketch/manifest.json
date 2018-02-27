@@ -19,7 +19,7 @@
     "script": "script.js",
     "handler": "syncStyles",
     "shortcut": "ctrl command j",
-    "name": "Sync Library Styles",
+    "name": "Quick sync",
     "identifier": "com.zeroheight.library-styles-sync.sync"
   },{
     "script": "script.js",
@@ -39,5 +39,22 @@
     "shortcut": "",
     "name": "JSON - Set typography URL",
     "identifier": "com.zeroheight.library-styles-sync.json-typo"
-  }]
+  }],
+  "menu": {
+    "items": [
+        {
+           "title": "Sync",
+           "items": [
+                "com.zeroheight.library-styles-sync.sync",
+                "com.zeroheight.library-styles-sync.sync-with",
+            ]
+        },{
+          "title": "JSON Sync",
+          "items": [
+               "com.zeroheight.library-styles-sync.json-sync",
+               "com.zeroheight.library-styles-sync.json-color",
+               "com.zeroheight.library-styles-sync.json-typo",
+           ]
+        }]
+    }
 }
