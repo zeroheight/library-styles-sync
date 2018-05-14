@@ -35,8 +35,6 @@ var syncStylesWith = function (context) {
   }
 };
 
-var SymbolMaster = require('sketch/dom').SymbolMaster;
-
 var syncStyles = function (context) {
   var doc = context.document.documentData();
 
@@ -57,11 +55,7 @@ var syncStyles = function (context) {
       if (librariesController().libraryForSymbol) {
         library = librariesController().libraryForSymbol_(symbol.symbolMaster());
       } else {
-        var master = SymbolMaster.fromNative(symbol.symbolMaster());
-        var newLib = master.getLibrary();
-        if (newLib) {
-          library = newLib.sketchObject;
-        }
+        library = librariesController().libraryForShareableObject_(symbol.symbolMaster());
       }
       if (library && library.document()) {
         validLibraries++;
