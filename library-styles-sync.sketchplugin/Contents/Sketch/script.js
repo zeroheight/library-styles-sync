@@ -35,6 +35,8 @@ var syncStylesWith = function (context) {
   }
 };
 
+var SymbolMaster = require('sketch/dom').SymbolMaster;
+
 var syncStyles = function (context) {
   var doc = context.document.documentData();
 
@@ -51,7 +53,16 @@ var syncStyles = function (context) {
     var libraryID = symbol.libraryID();
     if (!seenLibraries[libraryID]) {
       seenLibraries[libraryID] = true;
-      var library = librariesController().libraryForSymbol_(symbol.symbolMaster());
+      var library = null;
+      if (librariesController().libraryForSymbol) {
+        library = librariesController().libraryForSymbol_(symbol.symbolMaster());
+      } else {
+        var master = SymbolMaster.fromNative(symbol.symbolMaster());
+        var newLib = master.getLibrary();
+        if (newLib) {
+          library = newLib.sketchObject;
+        }
+      }
       if (library && library.document()) {
         validLibraries++;
         syncLibraryStyles(library.document().layerStyles(), doc.layerStyles(), lookups.layer);
@@ -197,10 +208,9 @@ var createStyle = function (name, properties, sharedStyles, currentStyles) {
 
   var currentStyle = currentStyles[name];
   if (currentStyle) {
-    sharedStyles.updateValueOfSharedObject_byCopyingInstance_(currentStyle, newStyle);
-    sharedStyles.synchroniseInstancesOfSharedObject_withInstance_(currentStyle, newStyle);
+    writeStyleUpdate(sharedStyles, currentStyle, newStyle);
   } else {
-    sharedStyles.addSharedObjectWithName_firstInstance(name, newStyle);
+    writeStyleCreate(sharedStyles, name, newStyle);
   }
 };
 
@@ -219,16 +229,34 @@ var createLookup = function (styles) {
   return lookup;
 };
 
+var writeStyleUpdate = function (styles, currentStyle, newStyle) {
+  if (styles.updateValueOfSharedObject_byCopyingInstance) {
+    styles.updateValueOfSharedObject_byCopyingInstance_(currentStyle, newStyle);
+    styles.synchroniseInstancesOfSharedObject_withInstance_(currentStyle, newStyle);
+  } else {
+    currentStyle.updateToMatch(newStyle);
+    currentStyle.resetReferencingInstances();
+  }
+};
+
+var writeStyleCreate = function (styles, name, newStyle) {
+  if (styles.addSharedObjectWithName_firstInstance) {
+    styles.addSharedObjectWithName_firstInstance(name, newStyle);
+  } else {
+    var s = MSSharedStyle.alloc().initWithName_firstInstance(name, newStyle);
+    styles.addSharedObject(s);
+  }
+};
+
 var syncLibraryStyles = function (libraryStyles, documentStyles, lookup) {
   libraryStyles.sharedStyles().forEach(function (librarySharedStyle) {
     var name = librarySharedStyle.name();
     var currentStyle = lookup[name];
     var libraryStyle = librarySharedStyle.style();
     if (currentStyle) {
-      documentStyles.updateValueOfSharedObject_byCopyingInstance_(currentStyle, libraryStyle);
-      documentStyles.synchroniseInstancesOfSharedObject_withInstance_(currentStyle, libraryStyle);
+      writeStyleUpdate(documentStyles, currentStyle, libraryStyle);
     } else {
-      documentStyles.addSharedObjectWithName_firstInstance(name, libraryStyle);
+      writeStyleCreate(documentStyles, name, libraryStyle);
     }
   });
 };
